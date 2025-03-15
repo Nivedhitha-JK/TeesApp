@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import {StyleSheet, Text, View} from 'react-native';
+import React from 'react';
 
 const CategoryScroll = () => {
   return (
@@ -13,10 +13,10 @@ export default CategoryScroll;
 
 const styles = StyleSheet.create({
   women: {
-    backgroundColor: "#0A3981",
-    color: "white",
+    backgroundColor: '#0A3981',
+    color: 'white',
     padding: 10,
-    textAlign: "center",
+    textAlign: 'center',
     borderRadius: 10,
     // marginTop: 5,
     marginHorizontal: 10,

@@ -5,34 +5,34 @@ import {
   TouchableOpacity,
   Alert,
   TextInput,
-} from "react-native";
-import React, { useState } from "react";
-import { useNavigation, useRoute } from "@react-navigation/native";
-import OTPInputView from "@twotalltotems/react-native-otp-input";
+} from 'react-native';
+import React, { useState } from 'react';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import OTPInputView from '@twotalltotems/react-native-otp-input';
 // import OtpInputs from "react-native-otp-inputs";
-import { OtpInput } from "react-native-otp-entry";
-import Toast from "react-native-toast-message";
+import { OtpInput } from 'react-native-otp-entry';
+import Toast from 'react-native-toast-message';
 import {
   saveAuthToken,
   saveIsNewUserInfo,
   savePhoneNumber,
-} from "../utils/storageService";
-import ProductShow from "../components/ProductShow";
-import { CommonActions } from "@react-navigation/native";
-import OTPTextInput from "react-native-otp-textinput";
-import { verifyPhnOtp } from "../utils/apiService";
+} from '../utils/storageService';
+import ProductShow from '../components/ProductShow';
+import { CommonActions } from '@react-navigation/native';
+import OTPTextInput from 'react-native-otp-textinput';
+import { verifyPhnOtp } from '../utils/apiService';
 
 const EnterOtpScreen = () => {
   const route = useRoute();
   const { phoneNumber, tempProduct, productId, isNewUser } = route.params;
-  console.log("Route Params", route.params);
+  console.log('Route Params', route.params);
   console.log(phoneNumber);
   console.log(tempProduct);
   console.log(isNewUser);
 
-  const [otp, setOtp] = useState("");
-  const [isOtpValid, setIsOtpValid] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState("");
+  const [otp, setOtp] = useState('');
+  const [isOtpValid, setIsOtpValid] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState('');
 
   const navigation = useNavigation();
 
@@ -60,36 +60,36 @@ const EnterOtpScreen = () => {
   // };
 
   const verifyOtp = async () => {
-    console.log("Entered OTP:", otp, phoneNumber);
-    if (otp === "123456") {
+    console.log('Entered OTP:', otp, phoneNumber);
+    if (otp === '123456') {
       // setIsOtpValid(true);
       // setIsLoggedIn(true);
       try {
         const response = await verifyPhnOtp(phoneNumber, otp);
-        console.log("API RESPONSE VERIFYOTP", response);
+        console.log('API RESPONSE VERIFYOTP', response);
 
         if (response.data && response.data.token) {
           const authToken = response.data.token;
           console.log(authToken);
           await saveAuthToken(authToken); //save token
-          console.log("Token Saved:", authToken);
+          console.log('Token Saved:', authToken);
 
           savePhoneNumber(phoneNumber).then(() => {
-            console.log("phoneNumber saved successfully", phoneNumber);
+            console.log('phoneNumber saved successfully', phoneNumber);
           });
           const userInfo = response.data.user;
           console.log(userInfo);
           await saveIsNewUserInfo(userInfo);
 
-          Alert.alert("Success", "OTP verified successfully!", [
+          Alert.alert('Success', 'OTP verified successfully!', [
             {
-              text: "OK",
+              text: 'OK',
               onPress: () => {
                 Toast.show({
-                  type: "success",
-                  text1: "Product Added",
-                  text2: "The Product has been added to cart",
-                  position: "center",
+                  type: 'success',
+                  text1: 'Product Added',
+                  text2: 'The Product has been added to cart',
+                  position: 'center',
                   autoHide: true,
                 });
 
@@ -102,8 +102,8 @@ const EnterOtpScreen = () => {
                 // }, 2000);
 
                 if (isNewUser) {
-                  navigation.navigate("user", {
-                    screen: "EditProfileScreen",
+                  navigation.navigate('user', {
+                    screen: 'EditProfileScreen',
                     params: { phoneNumber },
                   });
                 } else {
@@ -111,9 +111,9 @@ const EnterOtpScreen = () => {
                     CommonActions.reset({
                       index: 1,
                       routes: [
-                        { name: "HomeScreen" },
+                        { name: 'HomeScreen' },
                         {
-                          name: "ProductShow",
+                          name: 'ProductShow',
                           params: {
                             addedProduct: tempProduct,
                             showToast: true,
@@ -133,14 +133,14 @@ const EnterOtpScreen = () => {
             },
           ]);
         } else {
-          throw new Error("Invalid response from server");
+          throw new Error('Invalid response from server');
         }
       } catch (error) {
-        console.error("OTP Verification Error:", error);
-        Alert.alert("Error", "Invalid OTP. Please try again.");
+        console.error('OTP Verification Error:', error);
+        Alert.alert('Error', 'Invalid OTP. Please try again.');
       }
     } else {
-      Alert.alert("Invalid OTP", "Please enter a valid OTP.");
+      Alert.alert('Invalid OTP', 'Please enter a valid OTP.');
       // navigation.navigate("CartScreen");
     }
   };
@@ -231,14 +231,14 @@ const styles = StyleSheet.create({
   },
   txt: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   txtContainer: {
-    flexDirection: "column",
+    flexDirection: 'column',
     gap: 10,
   },
   numTxt: {
-    color: "gray",
+    color: 'gray',
     // fontWeight: "600",
   },
   wrapper: {
@@ -247,11 +247,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
   },
   filledPinCodeContainer: {
-    borderColor: "#0A3981",
+    borderColor: '#0A3981',
     borderBottomWidth: 5,
   },
   activePinCodeContainer: {
-    borderColor: "#0A3981",
+    borderColor: '#0A3981',
   },
   pinCodeContainer: {
     width: 50,
@@ -259,24 +259,24 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   btn: {
-    backgroundColor: "#0A3981",
+    backgroundColor: '#0A3981',
     borderRadius: 3,
     marginVertical: 10,
   },
   btnTxt: {
-    color: "white",
-    textAlign: "center",
+    color: 'white',
+    textAlign: 'center',
     paddingVertical: 5,
   },
   otpBox: {
     borderWidth: 2,
-    borderColor: "#0A3981",
+    borderColor: '#0A3981',
     borderRadius: 10,
     width: 50,
     height: 50,
-    textAlign: "center",
+    textAlign: 'center',
     fontSize: 20,
-    color: "#0A3981",
-    backgroundColor: "#fff",
+    color: '#0A3981',
+    backgroundColor: '#fff',
   },
 });

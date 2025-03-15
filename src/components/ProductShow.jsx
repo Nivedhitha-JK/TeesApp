@@ -18,7 +18,7 @@ import {savePhoneNumber, getPhoneNumber} from '../utils/storageService';
 import Toast from 'react-native-toast-message';
 // import LoaderKit from "react-native-loader-kit";
 import {fetchProductDetails, phoneNoLogin} from '../utils/apiService';
-import {BallIndicator} from 'react-native-indicators';
+// import {BallIndicator} from 'react-native-indicators';
 
 const ProductShow = () => {
   const {addToCart} = useCart();
@@ -28,7 +28,7 @@ const ProductShow = () => {
   console.log(productId);
 
   const [productDetails, setProductDetails] = useState(null);
-  const [availableColors, setAvailableColors] = useState(null);
+  // const [availableColors, setAvailableColors] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
@@ -225,44 +225,7 @@ const ProductShow = () => {
     getProductDetails();
   }, [productId]);
 
-  // useEffect(() => {
-  //   const fetchProductDetails = async () => {
-  //     setLoading(true);
-  //     console.log(productId);
-  //     try {
-  //       const response = await axios.get(
-  //         `${API_BASE_URL}getProductById?productId=${productId}`
-  //       );
 
-  //       console.log("Product Details", response.data.product);
-  //       console.log(response.data.product.images[0]);
-  //       setProductDetails(response.data.product);
-
-  //       const getColors = response.data.product.color;
-
-  //       // call api to fetch product colors
-
-  //       // const colorResponse = await axios.post(
-  //       //   `http://192.168.20.5:3000/similarProductsByColor`,
-  //       //   { productId }
-  //       // );
-
-  //       // const colors = colorResponse.data.colors.map((item) => item.colors);
-  //       // console.log(colors);
-
-  //       // console.log("color details", colorResponse.data.colors);
-
-  //       // setAvailableColors(colors);
-  //     } catch (error) {
-  //       console.error("error while fetching data", error);
-  //       setError("Error in api");
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchProductDetails();
-  // }, [productId]);
 
   if (loading) {
     return (

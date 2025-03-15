@@ -1,34 +1,31 @@
-import {StyleSheet, View, Dimensions, Alert} from 'react-native';
+import {StyleSheet, View, Alert} from 'react-native';
 import React, {useEffect, useMemo, useState} from 'react';
-import ProductCard from '../components/ProductCard';
+// import ProductCard from '../components/ProductCard';
 import {
   useFocusEffect,
   useNavigation,
   useRoute,
 } from '@react-navigation/native';
-import CartScreen from './CartScreen';
-import axios from 'axios';
+// import CartScreen from './CartScreen';
+// import axios from 'axios';
 import SubCategoryScreen from './SubCategoryScreen';
 import TopSearchScreen from './TopSearchScreen';
 import LoginModal from './LoginModal';
-import API_BASE_URL from '../config/api';
+// import API_BASE_URL from '../config/api';
 import CarouselScreen from './CarouselScreen';
 import ProductListing from './ProductListing';
-import {
-  savePhoneNumber,
-  getPhoneNumber,
-  removePhoneNumber,
-} from '../utils/storageService';
+import {savePhoneNumber, getPhoneNumber} from '../utils/storageService';
 import {fetchProducts} from '../utils/apiService';
-import PaymentScreen from './PaymentScreen';
+// import PaymentScreen from './PaymentScreen';
 import {StatusBar} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import API_BASE_URL from '../config/api';
 const HomeScreen = () => {
-  const {width, height} = Dimensions.get('window').width;
+  // const {width, height} = Dimensions.get('window').width;
 
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -89,7 +86,7 @@ const HomeScreen = () => {
       setLoading(true);
       try {
         const response = await fetchProducts();
-        console.log(response);
+        console.log('API Response: ', response);
         setProduct(response);
       } catch (error) {
         console.error('Error fetching products nil', error);
@@ -157,39 +154,39 @@ const HomeScreen = () => {
 
   // clear phn num
 
-  const clearPhoneNum = () => {
-    setPhoneNumber('');
-  };
+  // const clearPhoneNum = () => {
+  //   setPhoneNumber('');
+  // };
   const toggleModal = () => {
     console.log('Toggle Btn is clickeddddd');
     setIsModalVisible(!isModalVisible);
   };
 
-  const renderProduct = ({item}) => {
-    // const defaultImage = require("../assets/images/pro_1.jpeg");
-    // const image = item.images && item.images.length > 0 ? item.images[0] : null;
+  // const renderProduct = ({item}) => {
+  //   // const defaultImage = require("../assets/images/pro_1.jpeg");
+  //   // const image = item.images && item.images.length > 0 ? item.images[0] : null;
 
-    const apiUrl = 'http://192.168.20.5:3000/';
-    const imgProductUrl = item.images[0];
+  //   const apiUrl = 'http://192.168.20.5:5005/';
+  //   const imgProductUrl = item.images[0];
 
-    const fullImgUrl = `${apiUrl}${imgProductUrl}`;
-    console.log('Product ID:', item._id);
+  //   const fullImgUrl = `${apiUrl}${imgProductUrl}`;
+  //   console.log('Product ID:', item._id);
 
-    // console.log(fullImgUrl);
-    return (
-      <View style={styles.gridItem}>
-        <ProductCard
-          name={item.name}
-          price={item.price}
-          fullImgUrl={fullImgUrl}
-          productId={item._id}
-          onPress={() =>
-            navigation.navigate('ProductShow', {productId: item._id})
-          }
-        />
-      </View>
-    );
-  };
+  //   // console.log(fullImgUrl);
+  //   return (
+  //     <View style={styles.gridItem}>
+  //       <ProductCard
+  //         name={item.name}
+  //         price={item.price}
+  //         fullImgUrl={fullImgUrl}
+  //         productId={item._id}
+  //         onPress={() =>
+  //           navigation.navigate('ProductShow', {productId: item._id})
+  //         }
+  //       />
+  //     </View>
+  //   );
+  // };
 
   // fetch api
 
@@ -200,11 +197,11 @@ const HomeScreen = () => {
   };
 
   //logout function
-  const logout = async () => {
-    await removePhoneNumber();
-    setIsLoggedIn(false);
-    setPhoneNumber('');
-  };
+  // const logout = async () => {
+  //   await removePhoneNumber();
+  //   setIsLoggedIn(false);
+  //   setPhoneNumber('');
+  // };
 
   return (
     <SafeAreaView style={styles.safeArea}>

@@ -9,19 +9,19 @@ import {
   Modal,
   FlatList,
   KeyboardAvoidingView,
-} from "react-native";
-import React from "react";
-import { launchCamera, launchImageLibrary } from "react-native-image-picker";
-import { Image } from "react-native";
-import { useState } from "react";
-import DropDownPicker from "react-native-dropdown-picker";
-import { FloatingLabelInput } from "react-native-floating-label-input";
+} from 'react-native';
+import React from 'react';
+import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
+import { Image } from 'react-native';
+import { useState } from 'react';
+import DropDownPicker from 'react-native-dropdown-picker';
+import { FloatingLabelInput } from 'react-native-floating-label-input';
 
 const PrimaryTab = () => {
   const [photo, setPhoto] = useState(null);
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
   const [pincode, setPinCode] = useState();
@@ -32,9 +32,9 @@ const PrimaryTab = () => {
   const [open, setOpen] = useState(false);
   const [selectedGender, setSelectedGender] = useState(null);
   const [items, setItems] = useState([
-    { label: "Male", value: "Male" },
-    { label: "Female", value: "Female" },
-    { label: "Other", value: "Other" },
+    { label: 'Male', value: 'Male' },
+    { label: 'Female', value: 'Female' },
+    { label: 'Other', value: 'Other' },
   ]);
 
   // languages
@@ -42,12 +42,12 @@ const PrimaryTab = () => {
   const [languageOpen, setlanguageOpen] = useState();
   const [selectedLanguage, setselectedLanguage] = useState();
   const [languageItems, setLanguageItems] = useState([
-    { label: "Tamil", value: "Tamil" },
-    { label: "English", value: "English" },
-    { label: "Hindi", value: "Hindi" },
-    { label: "Malayalam", value: "Malayalam" },
-    { label: "Kannada", value: "Kannada" },
-    { label: "Telugu", value: "Telugu" },
+    { label: 'Tamil', value: 'Tamil' },
+    { label: 'English', value: 'English' },
+    { label: 'Hindi', value: 'Hindi' },
+    { label: 'Malayalam', value: 'Malayalam' },
+    { label: 'Kannada', value: 'Kannada' },
+    { label: 'Telugu', value: 'Telugu' },
   ]);
 
   // occupation
@@ -55,11 +55,11 @@ const PrimaryTab = () => {
   const [occupationOpen, setOccupationOpen] = useState();
   const [selectedOccupation, setSelectedOccupation] = useState();
   const [occupationItems, setOccupationItems] = useState([
-    { label: "Teacher", value: "Teacher" },
-    { label: "Developer", value: "Developer" },
-    { label: "Police", value: "Police" },
-    { label: "Dancer", value: "Dancer" },
-    { label: "Driver", value: "Driver" },
+    { label: 'Teacher', value: 'Teacher' },
+    { label: 'Developer', value: 'Developer' },
+    { label: 'Police', value: 'Police' },
+    { label: 'Dancer', value: 'Dancer' },
+    { label: 'Driver', value: 'Driver' },
   ]);
 
   // state
@@ -67,17 +67,17 @@ const PrimaryTab = () => {
   const [stateOpen, setStateOpen] = useState();
   const [selectedState, setSelectedState] = useState();
   const [stateItems, setStateItems] = useState([
-    { label: "Andhra Pradesh", value: "Andhra Pradesh" },
-    { label: "Arunachal Pradesh", value: "Arunachal Pradesh" },
-    { label: "Assam", value: "Assam" },
-    { label: "Bihar", value: "Bihar" },
-    { label: "Chhattisgarh", value: "Chhattisgarh" },
-    { label: "Goa", value: "Goa" },
-    { label: "Gujarat", value: "Gujarat" },
-    { label: "Haryana", value: "Haryana" },
-    { label: "Jharkhand", value: "Jharkhand" },
-    { label: "Karnataka", value: "Karnataka" },
-    { label: "Tamil Nadu", value: "Tamil Nadu" },
+    { label: 'Andhra Pradesh', value: 'Andhra Pradesh' },
+    { label: 'Arunachal Pradesh', value: 'Arunachal Pradesh' },
+    { label: 'Assam', value: 'Assam' },
+    { label: 'Bihar', value: 'Bihar' },
+    { label: 'Chhattisgarh', value: 'Chhattisgarh' },
+    { label: 'Goa', value: 'Goa' },
+    { label: 'Gujarat', value: 'Gujarat' },
+    { label: 'Haryana', value: 'Haryana' },
+    { label: 'Jharkhand', value: 'Jharkhand' },
+    { label: 'Karnataka', value: 'Karnataka' },
+    { label: 'Tamil Nadu', value: 'Tamil Nadu' },
   ]);
 
   // const renderLabel = () => {
@@ -93,15 +93,15 @@ const PrimaryTab = () => {
 
   const resetForm = () => {
     setPhoto(null),
-      setName(""),
-      setPhone(""),
-      setEmail(""),
+      setName(''),
+      setPhone(''),
+      setEmail(''),
       setSelectedGender(null),
       setSelectedOccupation(null),
       setSelectedState(null),
       setselectedLanguage([]),
-      setPinCode(""),
-      setCity("");
+      setPinCode(''),
+      setCity('');
   };
 
   const getFormData = () => {
@@ -121,11 +121,11 @@ const PrimaryTab = () => {
 
   const handleSubmit = () => {
     if (!name.trim()) {
-      Alert.alert("Error", "Please enter your name");
+      Alert.alert('Error', 'Please enter your name');
       return;
     }
     const formData = getFormData();
-    console.log("formData", formData);
+    console.log('formData', formData);
 
     resetForm();
   };
@@ -147,16 +147,16 @@ const PrimaryTab = () => {
   const OpenCamera = () => {
     launchCamera(
       {
-        mediaType: "photo",
+        mediaType: 'photo',
         saveToPhotos: true,
       },
       (response) => {
         if (response.didCancel) {
-          console.log("User cancelled camera picker");
+          console.log('User cancelled camera picker');
         } else if (response.errorCode) {
-          console.log("Error taking photo", response.errorCode);
+          console.log('Error taking photo', response.errorCode);
         } else {
-          console.log("camera Image picked successfully");
+          console.log('camera Image picked successfully');
           const uri = response.assets[0].uri;
           console.log(uri);
           setPhoto(uri);
@@ -168,17 +168,17 @@ const PrimaryTab = () => {
   const OpenGallery = () => {
     launchImageLibrary(
       {
-        mediaType: "photo",
+        mediaType: 'photo',
       },
       (response) => {
         if (response.didCancel) {
-          console.log("User cancelled image selection");
+          console.log('User cancelled image selection');
         } else if (response.errorCode) {
-          console.log("Error taking image", response.errorCode);
+          console.log('Error taking image', response.errorCode);
         } else {
-          console.log(" gallery Image picked successfully");
+          console.log(' gallery Image picked successfully');
           const uri = response.assets[0].uri;
-          console.log("uri");
+          console.log('uri');
           setPhoto(uri);
         }
       }
@@ -187,12 +187,12 @@ const PrimaryTab = () => {
 
   const showOptions = () => {
     Alert.alert(
-      "Select Option",
-      "Choose an option to pick an image",
+      'Select Option',
+      'Choose an option to pick an image',
       [
-        { text: "Camera", onPress: OpenCamera },
-        { text: "Gallery", onPress: OpenGallery },
-        { text: "Cancel", style: "cancel" },
+        { text: 'Camera', onPress: OpenCamera },
+        { text: 'Gallery', onPress: OpenGallery },
+        { text: 'Cancel', style: 'cancel' },
       ],
       { cancellable: true }
     );
@@ -213,7 +213,7 @@ const PrimaryTab = () => {
                     // pic chosen by user ? that pic : or default pic
                     photo
                       ? { uri: photo }
-                      : require("../assets/images/userImg.png")
+                      : require('../assets/images/userImg.png')
                   }
                   style={styles.profilePic}
                 />
@@ -222,7 +222,7 @@ const PrimaryTab = () => {
 
               {/* form start */}
               <FloatingLabelInput
-                label={"First Name *"}
+                label={'First Name *'}
                 value={name}
                 onChangeText={setName}
                 containerStyles={styles.inputContainer}
@@ -230,7 +230,7 @@ const PrimaryTab = () => {
               />
 
               <FloatingLabelInput
-                label={"Phone Number *"}
+                label={'Phone Number *'}
                 value={phone}
                 onChangeText={setPhone}
                 containerStyles={styles.inputContainer}
@@ -238,7 +238,7 @@ const PrimaryTab = () => {
               />
 
               <FloatingLabelInput
-                label={"Email *"}
+                label={'Email *'}
                 value={email}
                 onChangeText={setEmail}
                 containerStyles={styles.inputContainer}
@@ -287,7 +287,7 @@ const PrimaryTab = () => {
               />
 
               <FloatingLabelInput
-                label={"Pin Code *"}
+                label={'Pin Code *'}
                 value={pincode}
                 onChangeText={setPinCode}
                 containerStyles={styles.inputContainer}
@@ -295,7 +295,7 @@ const PrimaryTab = () => {
               />
 
               <FloatingLabelInput
-                label={"City *"}
+                label={'City *'}
                 value={city}
                 onChangeText={setCity}
                 containerStyles={styles.inputContainer}
@@ -344,24 +344,24 @@ const styles = StyleSheet.create({
     height: 120,
     borderRadius: 60,
     borderWidth: 2,
-    borderColor: "#0A3981",
+    borderColor: '#0A3981',
   },
   picContainer: {
     marginTop: 30,
-    alignItems: "center",
+    alignItems: 'center',
     // backgroundColor: "cyan",
   },
   picTxt: {
     fontSize: 18,
-    textTransform: "uppercase",
-    color: "#0A3981",
-    fontWeight: "bold",
+    textTransform: 'uppercase',
+    color: '#0A3981',
+    fontWeight: 'bold',
     letterSpacing: 1,
     marginTop: 20,
-    resizeMode: "cover",
+    resizeMode: 'cover',
   },
   inputContainer: {
-    border: "none",
+    border: 'none',
     borderBottomWidth: 1,
     margin: 10,
     // backgroundColor: "pink",
@@ -370,8 +370,8 @@ const styles = StyleSheet.create({
   labelFont: {
     fontSizeBlurred: 15,
     // fontSizeFocused: 13,
-    colorBlurred: "#555",
-    colorFocused: "#0A3981",
+    colorBlurred: '#555',
+    colorFocused: '#0A3981',
   },
   //dropdown
 
@@ -379,34 +379,34 @@ const styles = StyleSheet.create({
     margin: 10,
     borderWidth: 0,
     borderBottomWidth: 1,
-    borderColor: "#000",
-    backgroundColor: "transparent",
+    borderColor: '#000',
+    backgroundColor: 'transparent',
     borderRadius: 0,
     paddingHorizontal: 0,
     width: 340,
     marginLeft: 20,
     zIndex: 10,
-    position: "relative",
+    position: 'relative',
   },
   dropdownContainer: {
     marginLeft: 20,
     // marginTop: 10,
-    borderColor: "#0A3981",
+    borderColor: '#0A3981',
     width: 340,
     height: 300,
     zIndex: 1000,
   },
 
   submitButton: {
-    backgroundColor: "#0A3981",
+    backgroundColor: '#0A3981',
     padding: 10,
-    alignItems: "center",
+    alignItems: 'center',
     marginTop: 20,
     borderRadius: 5,
     paddingHorizontal: 50,
   },
   submitButtonText: {
-    color: "#fff",
-    fontWeight: "bold",
+    color: '#fff',
+    fontWeight: 'bold',
   },
 });

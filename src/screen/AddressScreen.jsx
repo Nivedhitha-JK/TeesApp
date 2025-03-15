@@ -4,32 +4,32 @@ import {
   StyleSheet,
   TouchableOpacity,
   TouchableWithoutFeedback,
-} from "react-native";
-import React, { useState } from "react";
-import CustomStepIndicator from "../components/CustomStepIndicator";
+} from 'react-native';
+import React, { useState } from 'react';
+import CustomStepIndicator from '../components/CustomStepIndicator';
 // import LoaderKit from "react-native-loader-kit";
-import RadioButtonRN from "radio-buttons-react-native";
-import { useNavigation } from "@react-navigation/native";
+import RadioButtonRN from 'radio-buttons-react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const AddressScreen = () => {
   const [currentPosition, setCurrentPosition] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
 
-  const labels = ["Cart", "Address", "Payment", "summary"];
+  const labels = ['Cart', 'Address', 'Payment', 'summary'];
   const data = [
     {
-      label: "abc street, alphabet road, letters nagar ",
-      content: "abc street, alphabet road, letters nagar",
+      label: 'abc street, alphabet road, letters nagar ',
+      content: 'abc street, alphabet road, letters nagar',
     },
     {
-      label: "xyz street, numeric road, numbers colony",
-      content: "xyz street, numeric road, numbers colony",
+      label: 'xyz street, numeric road, numbers colony',
+      content: 'xyz street, numeric road, numbers colony',
     },
   ];
 
   const navigation = useNavigation();
   const goToAddAddressPage = () => {
-    navigation.navigate("AddAddressScreen");
+    navigation.navigate('AddAddressScreen');
   };
 
   const goToPayment = () => {
@@ -37,7 +37,7 @@ const AddressScreen = () => {
 
     setTimeout(() => {
       setIsLoading(false);
-      navigation.navigate("PaymentScreen");
+      navigation.navigate('PaymentScreen');
     }, 2000);
   };
   return (
@@ -60,7 +60,7 @@ const AddressScreen = () => {
           activeColor="#0A3981"
           // deactiveColor="#e2e2e2"
           boxStyle={styles.radioBox}
-          animationTypes={["pulse"]}
+          animationTypes={['pulse']}
           renderLabel={(item) => (
             <View>
               <Text>{item.label}</Text>
@@ -106,57 +106,57 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     // backgroundColor: "lightgray",
-    flexDirection: "column",
+    flexDirection: 'column',
     gap: 10,
   },
   stepContainer: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
     marginVertical: 7,
   },
   addressTxt: {
-    color: "#0A3981",
+    color: '#0A3981',
     marginHorizontal: 10,
     // backgroundColor: "red",
     paddingHorizontal: 25,
     fontSize: 17,
-    fontFamily: "Nunito-Bold",
+    fontFamily: 'Nunito-Bold',
   },
   radioBtnContainer: {
     marginHorizontal: 20,
     // border: none,
   },
   radioBox: {
-    flexDirection: "row-reverse",
+    flexDirection: 'row-reverse',
     // borderWidth: 2,
   },
   radioButtonWrapper: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   radioButtonInner: {
-    backgroundColor: "#0A3981",
+    backgroundColor: '#0A3981',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
   },
   buttonText: {
-    color: "#fff",
+    color: '#fff',
     fontSize: 14,
   },
   btn: {
-    backgroundColor: "#0A3981",
+    backgroundColor: '#0A3981',
     padding: 5,
-    color: "white",
-    textAlign: "center",
+    color: 'white',
+    textAlign: 'center',
     marginHorizontal: 30,
     borderRadius: 3,
-    fontFamily: "MierA-DemiBold",
+    fontFamily: 'MierA-DemiBold',
     marginVertical: 20,
   },
   loader: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

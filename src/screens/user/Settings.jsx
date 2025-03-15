@@ -1,12 +1,12 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
-import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { useNavigation } from "@react-navigation/native";
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React from 'react';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 
 const Settings = () => {
   const navigation = useNavigation();
   const goToDelete = () => {
-    navigation.navigate("DeleteConfirmation");
+    navigation.navigate('DeleteConfirmation');
   };
   return (
     <View style={styles.container}>
@@ -25,10 +25,10 @@ export default Settings;
 
 const styles = StyleSheet.create({
   txt: {
-    color: "red",
+    color: 'red',
     fontSize: 18,
-    fontFamily: "Mier",
-    fontWeight: "600",
+    fontFamily: 'Mier',
+    fontWeight: '600',
     padding: 5,
   },
   container: {
@@ -36,6 +36,6 @@ const styles = StyleSheet.create({
     gap: 5,
   },
   paraTxt: {
-    fontFamily: "Mier",
+    fontFamily: 'Mier',
   },
 });

@@ -1,6 +1,6 @@
-import React from "react";
-import { View, Text } from "react-native";
-import FeatherIcons from "react-native-vector-icons/FeatherIcons";
+import React from 'react';
+import { View, Text } from 'react-native';
+import FeatherIcons from 'react-native-vector-icons/FeatherIcons';
 const EditAddressScreen = () => {
   return (
     <View>

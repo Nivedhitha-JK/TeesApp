@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   StyleSheet,
   View,
@@ -7,15 +7,15 @@ import {
   TouchableOpacity,
   Modal,
   Pressable,
-} from "react-native";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import { useCart } from "../context/CartContext";
+} from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { useCart } from '../context/CartContext';
 
 const CartCardScreen = ({ item, onUpdateCartItem }) => {
-  console.log("ITEM", item);
+  console.log('ITEM', item);
 
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [selectedSize, setSelectedSize] = useState(item.size || "M");
+  const [selectedSize, setSelectedSize] = useState(item.size || 'M');
   const [quantity, setQuantity] = useState(Number(item.quantity) || 1);
 
   // access removeFromCart function from usecart context
@@ -116,8 +116,8 @@ export default CartCardScreen;
 
 const styles = StyleSheet.create({
   cartContainer: {
-    flexDirection: "row",
-    backgroundColor: "white",
+    flexDirection: 'row',
+    backgroundColor: 'white',
     marginHorizontal: 10,
     marginVertical: 6,
     paddingHorizontal: 10,
@@ -140,26 +140,26 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   txt1: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
     fontSize: 18,
   },
   trashContainer: {
-    alignItems: "flex-end",
+    alignItems: 'flex-end',
     marginHorizontal: 10,
     flex: 0.3,
   },
   changeBtn: {
-    color: "#0A3981",
-    fontWeight: "bold",
+    color: '#0A3981',
+    fontWeight: 'bold',
     marginTop: 10,
   },
   modalContainer: {
     flex: 1,
-    justifyContent: "flex-end",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    justifyContent: 'flex-end',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   modalContent: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
     padding: 20,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
@@ -167,53 +167,53 @@ const styles = StyleSheet.create({
   },
   modalTitle: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 10,
   },
   sizeContainer: {
-    flexDirection: "row",
-    justifyContent: "space-around",
+    flexDirection: 'row',
+    justifyContent: 'space-around',
     marginBottom: 20,
   },
   sizeOption: {
     padding: 10,
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: '#ccc',
     borderRadius: 5,
   },
   selectedOption: {
-    backgroundColor: "#0A3981",
+    backgroundColor: '#0A3981',
   },
   sizeText: {
     fontSize: 16,
   },
   selectedText: {
-    color: "white",
+    color: 'white',
   },
   quantityContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-around",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
     marginBottom: 20,
   },
   quantityBtn: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     paddingHorizontal: 10,
   },
   quantityText: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   doneBtn: {
-    backgroundColor: "#0A3981",
+    backgroundColor: '#0A3981',
     paddingVertical: 10,
     borderRadius: 5,
-    alignItems: "center",
+    alignItems: 'center',
   },
   doneText: {
-    color: "white",
-    fontWeight: "bold",
+    color: 'white',
+    fontWeight: 'bold',
     fontSize: 16,
   },
 });

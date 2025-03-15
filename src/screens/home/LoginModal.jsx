@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Modal,
   StyleSheet,
@@ -6,7 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-} from "react-native";
+} from 'react-native';
 
 const LoginModal = ({
   isVisible,
@@ -29,7 +29,7 @@ const LoginModal = ({
             style={styles.phoneNumber}
             placeholder="Enter Your phone number"
             keyboardType="phone-pad"
-            placeholderTextColor={"#0A3981"}
+            placeholderTextColor={'#0A3981'}
             onChangeText={handleInputChange}
             maxLength={10}
             value={phoneNumber}
@@ -54,12 +54,12 @@ const styles = StyleSheet.create({
   modelContainer: {
     flex: 1,
     // backgroundColor: "green",
-    justifyContent: "flex-end",
+    justifyContent: 'flex-end',
     // alignContent: "center",
   },
   modalContent: {
     width: 400,
-    backgroundColor: "pink",
+    backgroundColor: 'pink',
     padding: 20,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
@@ -71,37 +71,37 @@ const styles = StyleSheet.create({
   phoneNumber: {
     borderWidth: 2,
     borderRadius: 3,
-    borderColor: "#0A3981",
+    borderColor: '#0A3981',
     height: 50,
   },
   modalTitle: {
     fontSize: 18,
-    fontWeight: "bold",
-    color: "#0A3981",
+    fontWeight: 'bold',
+    color: '#0A3981',
   },
   btnContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     marginTop: 15,
   },
   loginBtn: {
-    backgroundColor: "#0A3981",
+    backgroundColor: '#0A3981',
     padding: 7,
     borderRadius: 3,
     width: 100,
-    textAlign: "center",
+    textAlign: 'center',
   },
   cancelBtn: {
-    backgroundColor: "#0A3981",
-    color: "white",
+    backgroundColor: '#0A3981',
+    color: 'white',
     padding: 7,
     borderRadius: 3,
     width: 100,
   },
   txt: {
-    color: "white",
-    textAlign: "center",
+    color: 'white',
+    textAlign: 'center',
     fontSize: 15,
   },
 });

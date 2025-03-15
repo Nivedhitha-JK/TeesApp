@@ -1,11 +1,11 @@
-import React from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Ionicons from "react-native-vector-icons/Ionicons";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
-import AntDesign from "react-native-vector-icons/AntDesign";
-import CategoryScreen from "../screens/category/CategoryScreen";
-import WishlistScreen from "../screens/wishlist/WishlistScreen";
-import UserStack from "./StackNavigatior";
+import React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import CategoryScreen from '../screens/category/CategoryScreen';
+import WishlistScreen from '../screens/wishlist/WishlistScreen';
+import UserStack from './StackNavigatior';
 const Tab = createBottomTabNavigator();
 
 const BottomTabNavigator = () => {
@@ -14,7 +14,7 @@ const BottomTabNavigator = () => {
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
-        tabBarActiveTintColor: "#0A3981",
+        tabBarActiveTintColor: '#0A3981',
       }}
     >
       <Tab.Screen
@@ -24,7 +24,7 @@ const BottomTabNavigator = () => {
           tabBarIcon: ({ size, color }) => {
             return (
               <Ionicons
-                name={"grid-outline"}
+                name={'grid-outline'}
                 size={size}
                 color={color}
                 style={styles.icon1}
@@ -32,16 +32,16 @@ const BottomTabNavigator = () => {
             );
           },
         }}
-      ></Tab.Screen>
+       />
       <Tab.Screen
         name="Home"
         component={HomeScreen}
         options={{
           tabBarIcon: ({ size, focused, color }) => {
-            return <AntDesign name={"home"} size={size} color={color} />;
+            return <AntDesign name={'home'} size={size} color={color} />;
           },
         }}
-      ></Tab.Screen>
+       />
 
       <Tab.Screen
         name="account"
@@ -49,21 +49,21 @@ const BottomTabNavigator = () => {
         options={{
           tabBarIcon: ({ size, color }) => {
             return (
-              <Ionicons name={"heart-outline"} size={size} color={color} />
+              <Ionicons name={'heart-outline'} size={size} color={color} />
             );
           },
         }}
-      ></Tab.Screen>
+       />
 
       <Tab.Screen
         name="user"
         component={UserStack}
         options={{
           tabBarIcon: ({ size, color }) => {
-            return <FontAwesome name={"user-o"} size={size} color={color} />;
+            return <FontAwesome name={'user-o'} size={size} color={color} />;
           },
         }}
-      ></Tab.Screen>
+       />
     </Tab.Navigator>
   );
 };

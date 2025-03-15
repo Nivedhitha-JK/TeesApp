@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import {
   Dimensions,
   StyleSheet,
@@ -6,8 +6,8 @@ import {
   View,
   Image,
   TouchableOpacity,
-} from "react-native";
-import { FlatList } from "react-native-gesture-handler";
+} from 'react-native';
+import { FlatList } from 'react-native-gesture-handler';
 
 const OtherInfoScreen = () => {
   const [loading, setLoading] = useState();
@@ -42,7 +42,7 @@ const OtherInfoScreen = () => {
   );
 
   return (
-    <View></View>
+    <View />
     // {loading ? (
     //   <Text style={styles.loadingText}>Loading...</Text>
     // ) : (
@@ -61,33 +61,33 @@ export default OtherInfoScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   gradientContainer: {
-    width: "100%",
+    width: '100%',
     height: 300,
     // backgroundColor: "#0A3981",
     borderRadius: 10,
     // opacity: 0.9,
     // flex: 1,
-    flexDirection: "row",
+    flexDirection: 'row',
     // alignItems: "center",
-    overflow: "hidden",
-    position: "relative",
+    overflow: 'hidden',
+    position: 'relative',
   },
   title: {
     fontSize: 24,
-    fontWeight: "bold",
-    color: "#fff",
+    fontWeight: 'bold',
+    color: '#fff',
     marginBottom: 5,
   },
   subtitle: {
     fontSize: 16,
-    color: "#fff",
+    color: '#fff',
   },
   img1: {
-    width: "50%",
+    width: '50%',
     height: 334,
     borderRadius: 20,
     margin: 10,
@@ -95,21 +95,21 @@ const styles = StyleSheet.create({
   cartContainer: {
     width: 40,
     height: 40,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderRadius: 20,
-    justifyContent: "center",
-    alignItems: "center",
-    position: "absolute",
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
     marginLeft: 300,
     marginTop: 10,
   },
   title: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
     fontSize: 20,
   },
   subtitle: {
     letterSpacing: 1,
     fontSize: 15,
-    fontFamily: "NunitoRegular",
+    fontFamily: 'NunitoRegular',
   },
 });

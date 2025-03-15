@@ -125,7 +125,7 @@ const EditProfileNavigator = () => {
       <EditProfileStack.Screen
         name="EditProfileScreen"
         component={EditProfileScreen}
-        options={{headerShown: false}}></EditProfileStack.Screen>
+        options={{headerShown: false}} />
     </EditProfileStack.Navigator>
   );
 };
@@ -248,7 +248,7 @@ const App = () => {
                   tabBarIcon: ({size, color}) => (
                     <AntDesign name={'home'} size={size} color={color} />
                   ),
-                }}></Tab.Screen>
+                }} />
               <Tab.Screen
                 name="categories"
                 component={CategoryStack}
@@ -263,7 +263,7 @@ const App = () => {
                       />
                     );
                   },
-                }}></Tab.Screen>
+                }} />
               <Tab.Screen
                 name="My Products"
                 component={WishlistScreen}
@@ -287,7 +287,7 @@ const App = () => {
                   },
                   tabBarLabel: 'My Products',
                   tabBarLabelStyle: {color: '#0A3981'},
-                }}></Tab.Screen>
+                }} />
 
               <Tab.Screen
                 name="user"
@@ -298,7 +298,7 @@ const App = () => {
                       <FontAwesome name={'user-o'} size={size} color={color} />
                     );
                   },
-                }}></Tab.Screen>
+                }} />
             </Tab.Navigator>
             <Toast />
           </NavigationContainer>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,17 +7,17 @@ import {
   TouchableOpacity,
   Modal,
   TouchableWithoutFeedback,
-} from "react-native";
-import { useNavigation, useRoute } from "@react-navigation/native";
+} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 // import LoaderKit from "react-native-loader-kit";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import CustomStepIndicator from "../components/CustomStepIndicator";
-const OrderScreen = ({ route }) => {
-  const { productDetails, selectedColor, selectedQuantity, selectedSize } =
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import CustomStepIndicator from '../components/CustomStepIndicator';
+const OrderScreen = ({route}) => {
+  const {productDetails, selectedColor, selectedQuantity, selectedSize} =
     route.params;
 
   console.log(productDetails);
-  const baseUrl = "http://192.168.20.5:3000/";
+  const baseUrl = 'http://192.168.20.5:3000/';
 
   console.log(baseUrl);
   const imageUrl = `${baseUrl}${productDetails.images[0]}`;
@@ -26,7 +26,7 @@ const OrderScreen = ({ route }) => {
   const [loading, setLoading] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const labels = ["Review", "Payment"];
+  const labels = ['Review', 'Payment'];
 
   const navigation = useNavigation();
 
@@ -35,7 +35,7 @@ const OrderScreen = ({ route }) => {
 
     setTimeout(() => {
       setLoading(false);
-      navigation.navigate("PaymentScreen");
+      navigation.navigate('PaymentScreen');
     }, 2000);
   };
 
@@ -48,13 +48,12 @@ const OrderScreen = ({ route }) => {
         />
       </View>
 
-
       <View style={styles.productContainer}>
         <View style={styles.proImgContainer}>
           <Image
             source={{
-              uri: `${baseUrl}${productDetails.images}` || "no image found",
-              cache: "force-cache",
+              uri: `${baseUrl}${productDetails.images}` || 'no image found',
+              cache: 'force-cache',
             }}
             style={styles.image}
           />
@@ -94,14 +93,13 @@ const OrderScreen = ({ route }) => {
         <TouchableWithoutFeedback
           onPress={() => {
             setIsExpanded(!isExpanded);
-          }}
-        >
+          }}>
           <View style={styles.priceDetailsHeader}>
             <Text style={styles.priceDetailsTitle}>Price Details</Text>
             <MaterialIcons
               size={23}
               color="#0A3981"
-              name={isExpanded ? "keyboard-arrow-up" : "keyboard-arrow-down"}
+              name={isExpanded ? 'keyboard-arrow-up' : 'keyboard-arrow-down'}
             />
           </View>
         </TouchableWithoutFeedback>
@@ -154,8 +152,8 @@ export default OrderScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "lightgray",
-    flexDirection: "column",
+    backgroundColor: 'lightgray',
+    flexDirection: 'column',
     gap: 5,
   },
   image: {
@@ -163,148 +161,148 @@ const styles = StyleSheet.create({
     height: 150,
   },
   addressContainer: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
     padding: 15,
     // paddingVertical: 15,
     // marginVertical: 5,
-    flexDirection: "column",
+    flexDirection: 'column',
     gap: 15,
   },
   addressTxt: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
     fontSize: 18,
   },
   address1: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     // paddingHorizontal: 12,
   },
-  address2: { flexDirection: "column", gap: 7 },
+  address2: {flexDirection: 'column', gap: 7},
   editBtn: {
-    backgroundColor: "#0A3981",
+    backgroundColor: '#0A3981',
     padding: 5,
     borderRadius: 5,
   },
   editBtnTxt: {
-    color: "white",
+    color: 'white',
   },
   productContainer: {
-    backgroundColor: "white",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    backgroundColor: 'white',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     paddingHorizontal: 10,
   },
   proImgContainer: {
     // backgroundColor: "green",
   },
   proDetailsContainer: {
-    flexDirection: "column",
-    alignContent: "flex-start",
+    flexDirection: 'column',
+    alignContent: 'flex-start',
     gap: 3,
     flex: 1,
     // backgroundColor: "green",
     paddingHorizontal: 5,
   },
   proTxt: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
     fontSize: 15,
-    color: "#4c4f52",
+    color: '#4c4f52',
   },
   proTxt1: {
-    color: "#4c4f52",
-    fontWeight: "450",
+    color: '#4c4f52',
+    fontWeight: '450',
   },
 
   msgContainer: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
     padding: 10,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     paddingHorizontal: 5,
   },
   btn: {
-    backgroundColor: "#0A3981",
+    backgroundColor: '#0A3981',
     padding: 5,
-    color: "white",
-    textAlign: "center",
+    color: 'white',
+    textAlign: 'center',
     marginHorizontal: 10,
     borderRadius: 3,
-    fontFamily: "MierA-DemiBold",
+    fontFamily: 'MierA-DemiBold',
     marginVertical: 20,
   },
   stepContainer: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
     // marginVertical: 5,
     paddingVertical: 7,
   },
   modalContainer: {
     flex: 1,
-    backgroundColor: "rgba(0,0,0,0.5)",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   modalContent: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
     padding: 50,
     borderRadius: 10,
-    alignItems: "center",
+    alignItems: 'center',
   },
   loadingTxt: {
     fontSize: 15,
     marginTop: 10,
   },
   priceDetailsContainer: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
     paddingHorizontal: 20,
     marginVertical: 7,
   },
   priceDetailsHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     paddingVertical: 15,
   },
   priceDetailsTitle: {
     fontSize: 18,
-    fontFamily: "Nunito-Bold",
-    color: "#000",
+    fontFamily: 'Nunito-Bold',
+    color: '#000',
   },
   priceBreakdown: {
     borderTopWidth: 1,
-    borderTopColor: "#e2e2e2",
+    borderTopColor: '#e2e2e2',
     paddingVertical: 10,
   },
   priceItem: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     paddingVertical: 5,
   },
   priceLabel: {
     fontSize: 16,
-    color: "#555",
+    color: '#555',
   },
   priceValue: {
     fontSize: 16,
-    color: "#000",
+    color: '#000',
   },
   priceItemTotal: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     paddingVertical: 10,
     borderTopWidth: 1,
-    borderTopColor: "#e2e2e2",
+    borderTopColor: '#e2e2e2',
     marginTop: 10,
   },
   priceLabelTotal: {
     fontSize: 17,
-    fontFamily: "Nunito-Bold",
-    color: "#000",
+    fontFamily: 'Nunito-Bold',
+    color: '#000',
   },
   priceValueTotal: {
     fontSize: 17,
-    fontFamily: "Nunito-Bold",
-    color: "#000",
+    fontFamily: 'Nunito-Bold',
+    color: '#000',
   },
 });

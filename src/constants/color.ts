@@ -1,3 +1,3 @@
 export const color = {
-  iconPrimary: "#000000",
+  iconPrimary: '#000000',
 };

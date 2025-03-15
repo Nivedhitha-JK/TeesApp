@@ -129,14 +129,14 @@ const PrimaryScreen = ({route}) => {
         if (storedName) {
           setName(storedName);
         }
-        if (storedMail) setEmail(storedMail);
-        if (storedPhoneNum) setPhone(storedPhoneNum);
-        if (storedPassword) setPassword(storedPassword);
-        if (storedCity) setCity(storedCity);
-        if (storedGender) setSelectedGender(storedGender);
-        if (storedLanguage) setselectedLanguage(storedLanguage);
-        if (storedPincode) setPinCode(storedPincode);
-        if (storedState) setSelectedState(storedState);
+        if (storedMail) {setEmail(storedMail);}
+        if (storedPhoneNum) {setPhone(storedPhoneNum);}
+        if (storedPassword) {setPassword(storedPassword);}
+        if (storedCity) {setCity(storedCity);}
+        if (storedGender) {setSelectedGender(storedGender);}
+        if (storedLanguage) {setselectedLanguage(storedLanguage);}
+        if (storedPincode) {setPinCode(storedPincode);}
+        if (storedState) {setSelectedState(storedState);}
       } catch (error) {
         console.error('Failed to load user data', error);
         Alert.alert('Failed to load user data');

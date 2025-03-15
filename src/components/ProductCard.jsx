@@ -1,36 +1,36 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-  Dimensions,
-} from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
-import ProductShow from './ProductShow';
+// import {useNavigation} from '@react-navigation/native';
+// import ProductShow from './ProductShow';
 import {addWishlist, removeWishlist} from '../utils/apiService';
 import {useToast} from 'react-native-toast-notifications';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
+// import {
+//   widthPercentageToDP as wp,
+//   heightPercentageToDP as hp,
+// } from 'react-native-responsive-screen';
+import {Alert} from 'react-native';
+import API_BASE_URL from '../config/api';
 const ProductCard = ({
   name,
   price,
-  fullImgUrl,
+  // fullImgUrl,
   productId,
   onPress,
+  image,
 
   // onProductPress,
 }) => {
+  console.log('Image URL in ProductCard:', image);
   // const width = Dimensions.get('windows');
   const [isLike, setIsLike] = useState(false);
-
   const toast = useToast();
-
+  const mergeUrl = `${API_BASE_URL}${image.replace(/\\/g, '/')}`;
+  console.log(API_BASE_URL);
+  console.log(image);
+  // const fullImgUrl = `${apiUrl}${imgProductUrl.replace(/\\/g, '/')}`;
+  console.log(mergeUrl);
   // const handleLike = async () => {
   //   try {
   //     if (isLike) {
@@ -166,7 +166,7 @@ const ProductCard = ({
     }
   };
 
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
 
   // goToProductShowPage = () => {
   //   navigation.navigate("ProductShow", { name, price, fullImgUrl, productid });
@@ -174,13 +174,16 @@ const ProductCard = ({
 
   // console.log("product Id", productId);
   // console.log(fullImgUrl);
+  // const imageSource = require('../../assets/categoryImages/yellow_tshirt.png');
+  // console.log(Image.resolveAssetSource(imageSource));
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={onPress}>
         <Image
-          source={{uri: fullImgUrl}}
-          // source={require("../assets/images/pro_1.jpeg")}
+          source={{uri: mergeUrl, cache: 'reload'}}
+          // source={imageSource}
           style={styles.proImg}
+          onError={() => console.error('Image failed to load:', mergeUrl)}
         />
       </TouchableOpacity>
 
@@ -214,7 +217,7 @@ export default ProductCard;
 const styles = StyleSheet.create({
   proImg: {
     height: 250,
-    width: '90%',
+    width: '80%',
     borderRadius: 25,
     marginHorizontal: 10,
   },

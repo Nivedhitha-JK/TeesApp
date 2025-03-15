@@ -4,25 +4,25 @@ import {
   SafeAreaView,
   View,
   TouchableOpacity,
-} from "react-native";
+} from 'react-native';
 
-import React from "react";
-import Entypo from "react-native-vector-icons/Entypo";
-import Feather from "react-native-vector-icons/Feather";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import AntDesign from "react-native-vector-icons/AntDesign";
-import HeaderComp from "../components/HeaderComp";
-import { iconSize, spacing } from "../constants/dimensions";
-import { color } from "../constants/color";
-import { useNavigation } from "@react-navigation/native";
-import { ScrollView } from "react-native-gesture-handler";
-import Icon from "react-native-vector-icons/MaterialIcons";
+import React from 'react';
+import Entypo from 'react-native-vector-icons/Entypo';
+import Feather from 'react-native-vector-icons/Feather';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import HeaderComp from '../components/HeaderComp';
+import { iconSize, spacing } from '../constants/dimensions';
+import { color } from '../constants/color';
+import { useNavigation } from '@react-navigation/native';
+import { ScrollView } from 'react-native-gesture-handler';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const UserScreen = () => {
   const navigation = useNavigation();
 
   const toEditProfile = () => {
-    navigation.navigate("EditProfileScreen");
+    navigation.navigate('EditProfileScreen');
   };
 
   return (
@@ -37,7 +37,7 @@ const UserScreen = () => {
 
           <TouchableOpacity style={styles.userView1} onPress={toEditProfile}>
             <Text style={styles.txt1}>Saravana</Text>
-            <Entypo name={"chevron-right"} size={25} style={styles.arrow} />
+            <Entypo name={'chevron-right'} size={25} style={styles.arrow} />
           </TouchableOpacity>
         </View>
 
@@ -47,7 +47,7 @@ const UserScreen = () => {
             <Text style={styles.txt3}>SmartCoins</Text>
           </View>
           <TouchableOpacity style={styles.arrBg}>
-            <Entypo name={"chevron-right"} size={25} style={styles.arrow1} />
+            <Entypo name={'chevron-right'} size={25} style={styles.arrow1} />
           </TouchableOpacity>
         </View>
 
@@ -116,75 +116,75 @@ const styles = StyleSheet.create({
     padding: spacing.md,
   },
   txt: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
     fontSize: 20,
-    color: "#7F8487",
+    color: '#7F8487',
     marginTop: 5,
     marginLeft: 5,
   },
   container1: {
-    backgroundColor: "#0A3981",
+    backgroundColor: '#0A3981',
     height: 130,
-    justifyContent: "space-between",
-    alignItems: "center",
+    justifyContent: 'space-between',
+    alignItems: 'center',
     borderRadius: 10,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     marginBottom: 20,
     borderRadius: 10,
   },
   userView: {
     width: 100,
     height: 100,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderRadius: 100,
     margin: 10,
   },
   userView1: {
     margin: 10,
     flex: 1,
-    flexDirection: "row",
+    flexDirection: 'row',
     gap: 10,
   },
   userView2: {
     marginRight: 30,
   },
   userTxt: {
-    color: "Gray",
+    color: 'Gray',
   },
   letter: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
     fontSize: 60,
-    textAlign: "center",
+    textAlign: 'center',
     marginTop: 8,
   },
   txt1: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
     fontSize: 20,
     letterSpacing: 2,
-    color: "white",
+    color: 'white',
   },
   txt2: {
     fontSize: 15,
-    color: "white",
+    color: 'white',
   },
   edit: {
-    color: "white",
+    color: 'white',
   },
   txtOption: {
     padding: 5,
-    flexDirection: "row",
+    flexDirection: 'row',
     gap: 10,
   },
   button: {
     padding: 15,
-    backgroundColor: "blue",
+    backgroundColor: 'blue',
     borderRadius: 10,
   },
   text: {
     fontSize: 20,
-    fontWeight: "bold",
-    fontFamily: "Helvetica Neue",
+    fontWeight: 'bold',
+    fontFamily: 'Helvetica Neue',
   },
   optContainer: {
     // justifyContent: "center",
@@ -194,31 +194,31 @@ const styles = StyleSheet.create({
   },
   txtInput: {
     borderWidth: 1,
-    borderColor: "black",
+    borderColor: 'black',
     borderRadius: 5,
     marginTop: 10,
   },
   arrow: {
     marginRight: 90,
-    color: "white",
+    color: 'white',
   },
   container2: {
-    flexDirection: "row",
-    backgroundColor: "#0A3981",
+    flexDirection: 'row',
+    backgroundColor: '#0A3981',
     padding: 10,
     borderRadius: 5,
-    alignItems: "center",
-    justifyContent: "space-between",
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   txt3: {
-    color: "white",
+    color: 'white',
     letterSpacing: 1,
   },
   arrow1: {
-    color: "black",
+    color: 'black',
   },
   arrBg: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderRadius: 15,
   },
   box1: {
@@ -226,29 +226,29 @@ const styles = StyleSheet.create({
     height: 100,
     borderWidth: 2,
     borderRadius: 10,
-    borderColor: "gray",
-    justifyContent: "center",
-    alignItems: "center",
-    textAlign: "center",
+    borderColor: 'gray',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
     gap: 5,
-    fontFamily: "Helvetica",
-    cursor: "pointer",
+    fontFamily: 'Helvetica',
+    cursor: 'pointer',
   },
   box2: {
     width: 170,
     height: 100,
     borderWidth: 2,
     borderRadius: 10,
-    borderColor: "gray",
-    justifyContent: "center",
-    alignItems: "center",
-    textAlign: "center",
+    borderColor: 'gray',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
     gap: 5,
-    fontFamily: "Helvetica",
+    fontFamily: 'Helvetica',
   },
   box: {
     marginTop: 20,
-    flexDirection: "row",
+    flexDirection: 'row',
     gap: 15,
   },
   bTxt: {
@@ -257,18 +257,18 @@ const styles = StyleSheet.create({
   },
   headTxt: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginTop: 10,
     marginBottom: 10,
   },
   list1: {
-    flexDirection: "row",
+    flexDirection: 'row',
     gap: 30,
-    alignItems: "flex-start",
-    justifyContent: "flex-start",
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
     marginBottom: 10,
     borderBottomWidth: 2,
-    borderBottomColor: "#D3D3D3",
+    borderBottomColor: '#D3D3D3',
     marginVertical: 10,
   },
   list1Txt: {

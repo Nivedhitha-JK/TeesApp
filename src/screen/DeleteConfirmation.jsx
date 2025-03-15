@@ -1,21 +1,21 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
-import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { useNavigation } from "@react-navigation/native";
-import Entypo from "react-native-vector-icons/Entypo";
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React from 'react';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
+import Entypo from 'react-native-vector-icons/Entypo';
 const DeleteConfirmation = () => {
   const navigation = useNavigation();
 
   const backToEdit = () => {
-    navigation.navigate("EditProfileScreen");
+    navigation.navigate('EditProfileScreen');
   };
 
   const guidelines = [
-    "Your account will be permanently deleted after 14 days, during which you can reactivate it by signing in with the same phone number",
-    "You will not be able to return/cancel your orders that are not delivered yet",
-    "You will not be able to check your old orders",
-    "You will not be able to check your saved addresses, payment methods, and wishlist",
-    "You will lose out on the latest offers, discounts, and sale updates",
+    'Your account will be permanently deleted after 14 days, during which you can reactivate it by signing in with the same phone number',
+    'You will not be able to return/cancel your orders that are not delivered yet',
+    'You will not be able to check your old orders',
+    'You will not be able to check your saved addresses, payment methods, and wishlist',
+    'You will lose out on the latest offers, discounts, and sale updates',
   ];
 
   const gotToEditPage = () => {};
@@ -55,23 +55,23 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   txt: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
     fontSize: 18,
     marginTop: 3,
     letterSpacing: 1,
-    fontFamily: "Helvetica",
+    fontFamily: 'Helvetica',
   },
   tab: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     borderBottomWidth: 1,
-    borderBottomColor: "black",
+    borderBottomColor: 'black',
     paddingVertical: 10,
     paddingHorizontal: 10,
   },
   txtHead: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     paddingVertical: 20,
   },
   container1: {
@@ -82,37 +82,37 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     marginBottom: 5,
     letterSpacing: 1,
-    fontFamily: "Mier",
+    fontFamily: 'Mier',
     lineSpacing: 3,
-    fontWeight: "600",
+    fontWeight: '600',
     paddingVertical: 10,
   },
   btnContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     gap: 10,
     paddingHorizontal: 10,
-    textAlign: "center",
+    textAlign: 'center',
     marginVertical: 30,
   },
   btn1: {
-    backgroundColor: "#0A3981",
+    backgroundColor: '#0A3981',
     width: 150,
     borderRadius: 2,
-    textAlign: "center",
+    textAlign: 'center',
     padding: 5,
   },
   btn2: {
-    backgroundColor: "#0A3981",
+    backgroundColor: '#0A3981',
     width: 180,
     borderRadius: 2,
-    textAlign: "center",
+    textAlign: 'center',
     padding: 5,
   },
   btnTxt: {
-    textAlign: "center",
-    color: "white",
-    fontWeight: "bold",
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: 'bold',
   },
 });

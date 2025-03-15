@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  FlatList,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Dimensions,
-} from 'react-native';
+import {FlatList, StyleSheet, Text, View, Image} from 'react-native';
 import ProductCard from '../components/ProductCard';
 // import LoaderKit from 'react-native-loader-kit';
 import API_BASE_URL from '../config/api';
@@ -15,31 +8,32 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-import {BallIndicator} from 'react-native-indicators';
+// import {BallIndicator} from 'react-native-indicators';
 const ProductListing = ({product, loading, onProductPress}) => {
-  const width = Dimensions.get('window');
+  // const width = Dimensions.get('window');
+  console.log('Products received in ProductListing:', product);
   const renderProduct = ({item}) => {
-    // const defaultImage = require("../assets/images/pro_1.jpeg");
-    // const image = item.images && item.images.length > 0 ? item.images[0] : null;
+    console.log('Product Item: ', item);
 
-    // const apiUrl = "http://192.168.20.5:3000/";
-    const apiUrl = 'http://localhost:5005/';
     const imgProductUrl = item.images[0];
+    console.log(imgProductUrl);
 
-    const fullImgUrl = `${API_BASE_URL}${imgProductUrl}`;
-    console.log(fullImgUrl);
+    // const fullImgUrl = `${API_BASE_URL}${imgProductUrl}`;
+    // const fullImgUrl = `${API_BASE_URL}${imgProductUrl.replace(/\\/g, '/')}`;
+    // const fullImgUrl = `${apiUrl}${imgProductUrl.replace(/\\/g, '/')}`;
+    // console.log(fullImgUrl);
     console.log('Product ID:', item._id);
 
-    // console.log(fullImgUrl);
     return (
       <View style={styles.gridItem}>
         <ProductCard
           name={item.name}
           price={item.price}
-          fullImgUrl={fullImgUrl}
+          // fullImgUrl={imgProductUrl}
           productId={item._id}
           onPress={() => onProductPress(item._id)}
           key={item._id}
+          image={imgProductUrl}
         />
       </View>
     );
@@ -55,7 +49,7 @@ const ProductListing = ({product, loading, onProductPress}) => {
       style={styles.productContainer}
       ListEmptyComponent={
         loading ? (
-          <View style={styles.loader} key="loader">
+          <View style={styles.loader}>
             {/* <LoaderKit
               style={{width: 70, height: 70}}
               name={'Pacman'}
@@ -64,6 +58,12 @@ const ProductListing = ({product, loading, onProductPress}) => {
             {/* <PacmanIndicator color="#0A3981" size="90" /> */}
             {/* <BallIndicator color="#0A3981" /> */}
             <Text style={styles.loadTxt}>Loading...</Text>
+            {/* <Text style={styles.loadTxt}>Loading...</Text>
+            <Text style={styles.loadTxt}>Loading...</Text>
+            <Image
+              source={require('../../assets/categoryImages/orange_tshirt.png')}
+              style={styles.img}
+            /> */}
           </View>
         ) : (
           <View style={styles.imgContainer}>
@@ -90,9 +90,10 @@ const styles = StyleSheet.create({
   },
   productContainer: {
     // backgroundColor: 'red',
-    marginTop: hp(35),
+    marginTop: hp(25),
     padding: wp(1),
     width: wp(95),
+    // width: wp(85),
   },
   img: {
     width: wp(25),
@@ -122,5 +123,6 @@ const styles = StyleSheet.create({
     fontSize: wp(4),
     textAlign: 'center',
     fontFamily: 'Nunito-Bold',
+    color: 'black',
   },
 });

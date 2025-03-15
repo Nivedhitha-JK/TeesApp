@@ -1,6 +1,6 @@
 import axios from 'axios';
 import API_BASE_URL from '../config/api';
-import {getAuthToken, getIsNewUserInfo, saveAuthToken} from './storageService';
+import {getAuthToken, saveAuthToken} from './storageService';
 
 //fetch product details
 
@@ -16,10 +16,22 @@ export const fetchProductDetails = async productId => {
   }
 };
 
+// export const fetchProducts = async () => {
+//   try {
+//     const response = await axios.post(`${API_BASE_URL}productList`);
+//     console.log('API Response on Phone:', response.data);
+
+//     return response.data.products;
+//   } catch (error) {
+//     console.error('Error fetching product', error);
+//     throw error;
+//   }
+// };
+
 export const fetchProducts = async () => {
   try {
-    const response = await axios.post(`${API_BASE_URL}productList`);
-    console.log('API Response on Phone:', response.data);
+    const response = await axios.get(`${API_BASE_URL}getAllProducts`);
+    console.log('API Response on Phone:', response.data.products);
 
     return response.data.products;
   } catch (error) {
@@ -44,7 +56,7 @@ export const phoneNoLogin = async phoneNumber => {
     console.log('API error', error);
     if (error.response && error.response.status === false) {
       throw new Error(
-        response.message || 'Something Went Wrong, please try again',
+        error.response.message || 'Something Went Wrong, please try again',
       );
     }
     throw new Error('Could not send OTP. Please try again.');
@@ -71,7 +83,7 @@ export const verifyPhnOtp = async (phoneNumber, otp) => {
     console.log('API error', error);
     if (error.response && error.response.status === false) {
       throw new Error(
-        response.message || 'Something Went Wrong, please try again',
+        error.response.message || 'Something Went Wrong, please try again',
       );
     }
     throw new Error('Could not send OTP. Please try again.');
@@ -116,7 +128,9 @@ export const addWishlist = async productId => {
   console.log('Wishlisted Product ID is ', productId);
   try {
     const token = await getAuthToken();
-    if (!token) throw new Error('No authentication token found');
+    if (!token) {
+      throw new Error('No authentication token found');
+    }
 
     const response = await axios.post(
       `${API_BASE_URL}createWishlist`,
@@ -147,6 +161,7 @@ export const removeWishlist = async productId => {
     console.log(token);
 
     if (!token) {
+      // eslint-disable-next-line no-undef
       throw new error('No authentication token found');
     }
 
